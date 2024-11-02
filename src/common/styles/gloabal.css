@@ -1,0 +1,27 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+html,
+body {
+  /* max-height: 844px; */
+  touch-action: manipulation; /* Prevents double-tap zoom */
+  user-select: none; /* Prevents text selection */
+  -webkit-user-select: none; /* For Safari */
+  -moz-user-select: none; /* For Firefox */
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Jost", "Arial", sans-serif;
+  background: #222222;
+}
