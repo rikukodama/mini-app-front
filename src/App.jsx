@@ -9,7 +9,7 @@ function App() {
   const [vibe, setVibe] = useState(0); // State for vibe
 
   const [sad, setSad] = useState(0); // State for jooy
-  const [energy, setEngergy] = useState(500); // State for vibe
+  const [energy, setEngergy] = useState(100); // State for vibe
   const [time, setTime] = useState(600); // 1 minute and 30 seconds in seconds
   const [modeStatus, setModeStatus] = useState('SAD'); // 1 minute and 30 seconds in seconds
 
@@ -34,14 +34,12 @@ function App() {
     //setEngergy(energyPercent);
   };
   return (
-    <div className="h-full bg-black flex justify-center">
+    <div className="h-full">
       <Settings jooy={jooy} vibe={vibe}/>
       <Header sad={sad} energy={energy} timer={time} modeStatus={modeStatus} />
+ 
       <Body updateValues={updateValues} updateOnlyTime={updateOnlyTime} updateInactive={updateInactive} jooy={jooy} vibe={vibe} sadBarPercent={sad} energyPercent={energy} timer={time} modeStatus={modeStatus}/>
-   
-      {/*
-  
-      */}
+
       <div className="fixed bottom-3 w-full">
         <Footer />
       </div>

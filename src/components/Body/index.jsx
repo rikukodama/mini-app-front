@@ -10,8 +10,13 @@ import {Ellips} from '../../assets/svgs/Ellips'
 export function Body({ updateValues,updateOnlyTime,updateInactive,jooy,vibe,sadBarPercent,energyPercent,time,modeStatus}) {
 
   return (
-<div className="h-full relative bg-[url('/bg/back2.webp')] bg-cover bg-center md:w-[400px]">
-      <div className="h-full w-full  fixed top-0 left-0"></div>
+    <div className="h-full relative bg-[url('/bg/back2.webp')] bg-cover bg-center">
+      <div className="h-full w-full  fixed top-0 left-0 bg-black flex justify-center" >
+      <div className="h-full w-full bg-[url('/bg/back2.webp')] bg-cover bg-center md:w-[400px]">
+
+      </div>
+
+      </div>
 
       <div className="fixed w-[400px] h-[65%] left-1/2 -translate-x-1/2 bottom-32">
         <CharacterAnimation updateValues={updateValues} updateOnlyTime={updateOnlyTime} updateInactive={updateInactive} jooy={jooy} vibe={vibe} sadBarPercent={sadBarPercent} energyPercent={energyPercent} timer={time} modeStatus={modeStatus}/>
@@ -31,7 +36,7 @@ export function Body({ updateValues,updateOnlyTime,updateInactive,jooy,vibe,sadB
       </div>
       </div>
 
-      <div className="absolute bottom-[12%] left-[13%]">
+      <div className="absolute bottom-[12%] left-[13%] md:left-[40%]">
         <Ellips/>
       </div>
     </div>
