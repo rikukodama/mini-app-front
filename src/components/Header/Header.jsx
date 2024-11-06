@@ -41,7 +41,7 @@ export function Header({sad,energy,timer,modeStatus}) {
       
       <div className="-translate-y-2 z-10 flex items-center justify-center">
         <div className="absolute -translate-y-10 z-10">
-          <EmojiButton txtSize={24} title={"😞"} active />
+          <EmojiButton txtSize={24} title={getEmoji(modeStatus)} active />
 
         </div>
         <TopCenterOutterSvg />
