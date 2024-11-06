@@ -23,9 +23,10 @@ function App() {
     setModeStatus(modeStatus);
    
   };
-  const updateInactive=(sadBarPercent,energyPercent)=>{
+  const updateInactive=(sadBarPercent,energyPercent,modeStatus)=>{
     setEngergy(energyPercent);
     setSad(sadBarPercent);
+    setModeStatus(modeStatus);
   }
   const updateOnlyTime=(time_insecond)=>{
     setTime(time_insecond);

@@ -40,14 +40,17 @@ export function CharacterAnimation({ updateValues, updateOnlyTime,updateInactive
         if(newSadBarPercent<=100 && newSadBarPercent>0){
           setSadBarPercent((prev) => Math.min(prev - 1, 100));
         }
-        updateInactive(newSadBarPercent,newEnergyPercent);
+        updateInactive(newSadBarPercent,newEnergyPercent,newModeStatus);
       }
       if(newSadBarPercent<30){
+        setModeStatus("SAD");
         setSelectedCharacter(1);
       }else if(newSadBarPercent>30 && newSadBarPercent<60){
+        setModeStatus("Neutral");
         setSelectedCharacter(2);
       }else{
-       setSelectedCharacter(3);
+        setModeStatus("HAPPY");
+        setSelectedCharacter(3);
       }
       updateOnlyTime(time);
     }, 1000); // Update every second
@@ -194,6 +197,7 @@ const claim=()=>{
         {selectedCharacter === 2 && <PlayFul />}
         {selectedCharacter === 3 && <HappyMode />}
       </div>
+
       {isCelebrating && (
              <div className="absolute w-[100%] h-[90%]  rounded-lg mt-[25px] p-4">
              <div className="flex flex-col items-center p-6 rounded-lg shadow-md bg-blue-100 bg-opacity-50 border border-blue-200">
