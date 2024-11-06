@@ -9,8 +9,17 @@ import { ProgressBarSvg } from "../../assets/svgs/ProgressBarSvg";
 import { EnergyProgressBar } from "../../assets/svgs/EnergyProgressBar";
 import { HeaderBadge } from "./HeaderBadge";
 import SadProgressbar from "../SadProgressbar";
+import EngergyProgressbar from "../EnergyProgressBar";
 
-export function Header() {
+export function Header({sad,energy,timer,modeStatus}) {
+  energy=energy/500*100;
+  if(sad<100){
+    sad=sad/100*100;
+  }else{
+    sad=100;
+  }
+  
+ 
   return (
     // <div className="fixed top-[200px] w-full mx-4">
     <div className="fixed left-1/2 -translate-x-1/2 top-[65px] w-full z-50 flex items-center justify-center">
@@ -18,11 +27,11 @@ export function Header() {
         <TopLeftRectSvg />
         
        <div className="absolute top-0 left-0">
-        <div className="absolute left-[37px] top-[12px]">
-        <HeaderBadge icon={"😞"} text={"SAD"} />
+        <div className="absolute left-[17px] top-[12px] bg-red-400 w-[100px]">
+        <HeaderBadge icon={getEmoji(modeStatus)} text={modeStatus} />
         </div>
         <div className="absolute top-[28px] left-[13px]">
-        <SadProgressbar progress={100} />
+        <SadProgressbar progress={sad} />
        {/* <ProgressBarSvg /> */}
        
         </div>
@@ -41,22 +50,28 @@ export function Header() {
           <TopCenterInnerSvg />
         </div>
 
-        <div className="absolute translate-y-[12px] flex flex-col items-center">
-          <p className="text-white text-2xl font-[600]">01:30</p>
-          <p className="uppercase text-white/50 text-[8px] -translate-y-[3px]">
-            SECONDS
+        <div className="absolute translate-y-[12px] flex flex-col items-center top-[25px]">
+          <p className="uppercase text-white/50 text-[8px] -translate-y-[3px] m-0">
+           MOOD DECAY IN
           </p>
+          <p className="text-white text-2xl font-[600] m-0">{formatTime(timer)}</p>
+          
         </div>
       </div>
 
       <div className="-translate-x-5 flex items-center justify-center ml-2">
        <TopRightRectSvg />
         <div className="absolute top-0 left-0">
-        <div className="absolute left-[27px] top-[13px]">
+        <div className="absolute left-[15px] top-[13px]">
         <HeaderBadge icon={"⚡"} text={"Energy"} />
         </div>
-        <div className="absolute top-[21px] left-[8px]">
-       <EnergyProgressBar />
+        <div className="absolute top-[29px] left-[14px]">
+       {/* <EnergyProgressBar />*/}
+       <div className="relative">
+       <EngergyProgressbar progress={energy}/>
+       <div className="bg-gray-200 absolute w-[1px] h-[7px] top-0 left-[30px]"></div>
+       <div className="bg-gray-200 absolute w-[1px] h-[7px] top-0 left-[60px]"></div>
+       </div>
         </div>
        
        </div>
@@ -92,4 +107,19 @@ function EmojiButton({ title, Icon, txtSize, xl, active }) {
       </div>
     </button>
   );
+}
+const formatTime = (seconds) => {
+  const mins = String(Math.floor(seconds / 60)).padStart(2, '0');
+  const secs = String(seconds % 60).padStart(2, '0');
+  return `${mins}:${secs}`;
+};
+function getEmoji(mood) {
+  switch (mood) {
+    case 'HAPPY':
+      return '😊'; // Happy emoji
+    case 'SAD':
+      return '😔'; // Sad emoji
+    default:
+      return '🙂'; // Normal emoji
+  }
 }

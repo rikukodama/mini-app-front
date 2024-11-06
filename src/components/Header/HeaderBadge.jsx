@@ -1,7 +1,7 @@
 export function HeaderBadge({ icon, text, percentage }) {
   return (
     <div
-      className={`flex flex-col absolute ${
+      className={` w-[80px] justify-center items-center flex flex-col absolute ${
         text === "SAD" && "-translate-x-1"
       } `}
     >

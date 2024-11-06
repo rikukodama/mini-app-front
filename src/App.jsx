@@ -7,18 +7,37 @@ import React, { useState } from "react";
 function App() {
   const [jooy, setJooy] = useState(0); // State for jooy
   const [vibe, setVibe] = useState(0); // State for vibe
+
+  const [sad, setSad] = useState(0); // State for jooy
+  const [energy, setEngergy] = useState(500); // State for vibe
+  const [time, setTime] = useState(600); // 1 minute and 30 seconds in seconds
+  const [modeStatus, setModeStatus] = useState('SAD'); // 1 minute and 30 seconds in seconds
+
   
   // update the jooy and vibe
-  const updateValues = (newJooy, newVibe) => {
+  const updateValues = (newJooy, newVibe,sadBarPercent,energyPercent,modeStatus) => {
     setJooy(newJooy);
     setVibe(newVibe);
+    setSad(sadBarPercent);
+    setEngergy(energyPercent);
+    setModeStatus(modeStatus);
+   
+  };
+  const updateInactive=(sadBarPercent,energyPercent)=>{
+    setEngergy(energyPercent);
+    setSad(sadBarPercent);
+  }
+  const updateOnlyTime=(time_insecond)=>{
+    setTime(time_insecond);
+    //setSad(sadBarPercent);
+    //setEngergy(energyPercent);
   };
   return (
     <div className="h-full">
       <Settings jooy={jooy} vibe={vibe}/>
-      <Header />
+      <Header sad={sad} energy={energy} timer={time} modeStatus={modeStatus} />
  
-      <Body updateValues={updateValues} jooy={jooy} vibe={vibe} />
+      <Body updateValues={updateValues} updateOnlyTime={updateOnlyTime} updateInactive={updateInactive} jooy={jooy} vibe={vibe} sadBarPercent={sad} energyPercent={energy} timer={time} modeStatus={modeStatus}/>
 
       <div className="fixed bottom-3 w-full">
         <Footer />
