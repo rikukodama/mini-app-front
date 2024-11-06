@@ -161,7 +161,8 @@ const claim=()=>{
   return (
     <div className="h-full w-full relative" ref={containerRef}>
        {isCelebrating && (
-        <Confetti
+        <div className="md:w-[500px]">
+          <Confetti
           width={window.innerWidth}
           height={window.innerHeight}
           numberOfPieces={300}
@@ -169,6 +170,7 @@ const claim=()=>{
           recycle={false}
           colors={['#ff6347', '#ffd700', '#adff2f', '#00bfff']}
         />
+        </div>
       )}
       {scoreAnimations.map((score) => (
         <motion.div

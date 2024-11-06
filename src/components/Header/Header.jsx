@@ -12,7 +12,7 @@ import SadProgressbar from "../SadProgressbar";
 import EngergyProgressbar from "../EnergyProgressBar";
 
 export function Header({sad,energy,timer,modeStatus}) {
-  energy=energy/500*100;
+  energy=energy/100*100;
   if(sad<100){
     sad=sad/100*100;
   }else{
