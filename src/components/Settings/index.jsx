@@ -6,20 +6,21 @@ import { TopRectSvg } from "../../assets/svgs/SettingsSvg/TopRectSvg";
 
 export function Settings({jooy,vibe}) {
   return (
-    <div className="relative">
-      <div className="absolute left-[59%]">
+    <div className="relative bg">
+      <div className="absolute left-[59%] md:left-[50%]">
       <div className="relative w-[50px] h-[50px]">
         <div className="absolute inset-0 bg-yellow-300 opacity-50 rounded-full blur-xl animate-pulse"></div>
         <div className="absolute inset-0 bg-yellow-200 opacity-30 rounded-full blur-2xl animate-pulse delay-150"></div>
       </div>
       </div>
-      <div className="absolute left-[15%] top-[20px]">
+      
+      <div className="absolute left-[1%] top-[20px] md:left-[45%]">
       <div className="relative w-[70px] h-[70px]">
         <div className="absolute inset-0 bg-red-600 opacity-70 rounded-full blur-xl animate-pulse"></div>
         <div className="absolute inset-0 bg-red-600 opacity-70 rounded-full blur-2xl animate-pulse delay-150"></div>
       </div>
       </div>
-    <div className="fixed left-1/2 -translate-x-1/2 top-0 w-full z-50 h-[74px]">
+    <div className="fixed left-1/2 -translate-x-1/2 top-0 w-full md:w-[400px] z-50 h-[74px]">
       <div className="flex absolute z-10 h-full w-full justify-between px-4">
         <div className="flex gap-[6px] items-center">
           <img

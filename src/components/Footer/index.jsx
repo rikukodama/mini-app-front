@@ -10,11 +10,12 @@ import { Button } from "../Button.js/Index.jsx";
 export function Footer() {
   return (
     <div className="flex items-center justify-center">
-      <div className="absolute w-full">
+      
+      <div className="absolute w-full md:w-[400px]">
         <SubtractSvg />
       </div>
 
-      <div className="absolute -bottom-2 z-0 w-full">
+      <div className="absolute -bottom-2 z-0 w-full md:w-[400px]">
         <FooterRectSvg />
       </div>
 

@@ -34,12 +34,14 @@ function App() {
     //setEngergy(energyPercent);
   };
   return (
-    <div className="h-full">
+    <div className="h-full bg-black flex justify-center">
       <Settings jooy={jooy} vibe={vibe}/>
       <Header sad={sad} energy={energy} timer={time} modeStatus={modeStatus} />
- 
       <Body updateValues={updateValues} updateOnlyTime={updateOnlyTime} updateInactive={updateInactive} jooy={jooy} vibe={vibe} sadBarPercent={sad} energyPercent={energy} timer={time} modeStatus={modeStatus}/>
-
+   
+      {/*
+  
+      */}
       <div className="fixed bottom-3 w-full">
         <Footer />
       </div>
